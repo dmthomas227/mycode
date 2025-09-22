@@ -1,0 +1,11 @@
+---
+- name: Playbook - Un-Install figlet
+  hosts: planetexpress:!farnsworth   # remove farnsworth from the list of available hosts
+
+  tasks:
+  - name: using apt to remove figlet
+    ansible.builtin.apt:                 # this is the name of the module to use
+        name: figlet
+        state: absent    # this will REMOVE the application
+    become: yes
+
